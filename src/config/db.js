@@ -9,13 +9,12 @@ export const connectDB = async () => {
       socketTimeoutMS: 45000, 
       connectTimeoutMS: 30000, 
       maxPoolSize: 10, 
-      serverSelectionRetryDelayMS: 5000, 
       heartbeatFrequencyMS: 10000, 
       maxIdleTimeMS: 30000, 
     });
     console.log("MongoDB connected");
   } catch (err) {
     console.error("MongoDB connection error:", err);
-    process.exit(1);
+    throw err; 
   }
 };
