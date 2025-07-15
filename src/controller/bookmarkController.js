@@ -5,7 +5,8 @@ import { getMetadataFromURL } from '../utils/metadata.js';
 const fetchSummary = async (url) => {
   try {
     const encodedUrl = encodeURIComponent(url);
-    const res = await fetch(`https://r.jina.ai/http://${encodedUrl}`);
+    const res = await fetch(`https://r.jina.ai/${encodedUrl}`);
+
     const summaryText = await res.text();
     // Trim summary to ~1000 chars max for UX
     return summaryText.length > 1000
